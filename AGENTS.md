@@ -17,30 +17,31 @@
 ## First Run (Bootstrap)
 
 On first contact in a repo:
-1.Read VISION.md (top intent) and OVERVIEW.md (structure).
-2.Execute:
-
-```bash
-agents init
-```
-
-This performs a deep scan, builds .agents/index.json, initialises .agents/priorities.json, seeds a modules/*/tasks.json for discovered modules, and validates all JSON against schemas.
+- [ ] **Read intent**: Read `VISION.md` (top intent) and `OVERVIEW.md` (structure).
+- [ ] **Initialize**: Execute `agents init`.
+  - This performs a deep scan, builds `.agents/index.json`, initializes `.agents/priorities.json`, seeds a `modules/*/tasks.json` for discovered modules, and validates all JSON against schemas.
 
 ## Session Loop (Every Time You Code)
-1.Plan: Read `.agents/priorities.json`. The **next task** is strictly the **first item** in the `queue` array. Do not cherry-pick; follow the priority order.
 
-2.Execute: Implement the task fully (no placeholders). Update or create supporting docs as needed.
-3.Write back context:
-•Append decisions and rationale to the relevant task’s notes[].
-•If new cross-module knowledge emerges, add refs[] with exact file+line spans.
-•If new sub-work appears, split it into atomic tasks with clear acceptance criteria.
-4.Housekeeping (MANDATORY):
+Follow this workflow for every coding session:
 
-```bash
-agents validate
-```
+### 1. Planning
+- [ ] **Identify the next task**: Read `.agents/index.json` and `.agents/priorities.json`. The next task is strictly the first item in the `queue` array.
+- [ ] **Update context**: Read the relevant `modules/*/tasks.json` to understand the specific task details and criteria.
 
-This validates JSON, refreshes indices, updates ROADMAP snapshots, commits, and pushes. If it fails, fix and rerun. Do not open a PR until it passes.
+### 2. Execution
+- [ ] **Implement fully**: Implement the task robustly and safely. **Crucial**: No placeholders or partial code.
+- [ ] **Update supporting docs**: Update or create documentation as needed.
+- [ ] **Write back context**:
+  - Append decisions and rationale to the relevant task’s `notes[]`.
+  - If new cross-module knowledge emerges, add `refs[]` with exact file+line spans.
+  - If new sub-work appears, split it into atomic tasks with clear acceptance criteria.
+
+### 3. Housekeeping (MANDATORY)
+- [ ] **Self-Memory**: Update `tasks.json` -> `next_notes[]` for the *next* agent/session.
+- [ ] **Validate and Sync**: Run `agents validate`.
+  - This validates JSON, refreshes indices, updates ROADMAP snapshots, commits, and pushes.
+  - **Must pass** before any commit/push. If it fails, fix and rerun.
 
 ## File Hierarchy
 •VISION.md — immutable high-level goals, guardrails, and anti-drift constraints.
@@ -48,7 +49,7 @@ This validates JSON, refreshes indices, updates ROADMAP snapshots, commits, and 
 •.agents/index.json — machine index of modules, docs, and link targets.
 •.agents/priorities.json — dynamic, ordered list of tasks (critical-path first).
 •.agents/modules/*/tasks.json — atomic, verifiable tasks per module.
-•scripts/ — the only allowed operational scripts. They must remain robust and idempotent.
+
 
 ## Quality Gates (before marking a task done)
 •Deterministic acceptance tests (unit/integration) exist and pass.
