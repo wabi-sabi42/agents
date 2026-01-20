@@ -1,6 +1,0 @@
-{
-    "$schema": "../../.agents/schemas/tasks.schema.json",
-    "module": "resources",
-    "updated_at": "scan",
-    "tasks": []
-}
