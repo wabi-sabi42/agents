@@ -91,7 +91,7 @@ def update(project_root: Path):
     
     if diff_result.returncode != 0:
         ts = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
-        commit_msg = f"agent: post-session update @ {ts}"
+        commit_msg = f"chore(agent): post-session update @ {ts}"
         run_command(["git", "commit", "-m", commit_msg, "-m", "Runbook: agents update"], project_root)
     else:
         logger.info("No changes to commit.")

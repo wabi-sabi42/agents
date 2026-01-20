@@ -51,6 +51,15 @@ Follow this workflow for every coding session:
 •.agents/modules/*/tasks.json — atomic, verifiable tasks per module.
 
 
+## Git Conventions
+All commits must follow the Conventional Commits specification: `<type>(<scope>): <description>`
+- **feat**: A new feature
+- **fix**: A bug fix
+- **docs**: Documentation only changes
+- **refactor**: A code change that neither fixes a bug nor adds a feature
+- **chore**: Updating build tasks, package manager configs, etc.
+- **agent**: chore(agent): post-session update @ {timestamp}
+
 ## Quality Gates (before marking a task done)
 •Deterministic acceptance tests (unit/integration) exist and pass.
 •Performance/complexity is appropriate for expected scale.
