@@ -55,6 +55,7 @@ This validates JSON, refreshes indices, updates ROADMAP snapshots, commits, and 
 •Performance/complexity is appropriate for expected scale.
 •Security considerations addressed (inputs validated, secrets not hard-coded, least privilege).
 •Observability (logs/metrics) and failure handling implemented where relevant.
+•Code Cleanliness maintained (no unused imports, no commented-out code blocks, no legacy implementation comments).
 
 ## Notes for Future You (Self-Memory)
 •At the end of each task, append an actionable next_notes[] with hints you would have wanted before starting the next task.

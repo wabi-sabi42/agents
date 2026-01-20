@@ -1,4 +1,3 @@
-import argparse
 import json
 import sys
 from pathlib import Path
@@ -77,8 +76,6 @@ def discover_modules(project_root: Path):
         used_slugs.add(slug)
         
         # Determine tasks file location
-        # If the module is specifically "core" and mapped to "scripts" (legacy case), handle it?
-        # For now, standard behavior: .agents/modules/<slug>/tasks.json
         tasks_file = f".agents/modules/{slug}/tasks.json"
         
         mods.append({
