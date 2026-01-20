@@ -1,0 +1,115 @@
+{
+  "$id": "https://local.schemas/tasks.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "module",
+    "updated_at",
+    "tasks"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "module": {
+      "type": "string"
+    },
+    "updated_at": {
+      "$ref": "https://local.schemas/common.schema.json#/definitions/iso_date"
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "status",
+          "acceptance",
+          "impl",
+          "refs"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "todo",
+              "doing",
+              "done",
+              "blocked"
+            ]
+          },
+          "acceptance": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "impl": {
+            "type": "object",
+            "required": [
+              "steps"
+            ],
+            "properties": {
+              "steps": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "type",
+                    "file",
+                    "desc"
+                  ],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "create",
+                        "modify",
+                        "delete",
+                        "run",
+                        "verify"
+                      ]
+                    },
+                    "file": {
+                      "type": "string"
+                    },
+                    "desc": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "refs": {
+            "type": "array",
+            "items": {
+              "$ref": "https://local.schemas/common.schema.json#/definitions/file_ref"
+            }
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "next_notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

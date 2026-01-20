@@ -1,0 +1,14 @@
+{
+  "$schema": "schemas/priorities.schema.json",
+  "version": 1,
+  "updated_at": "bootstrap",
+  "policy": {
+    "strategy": "critical_path_first",
+    "tie_breakers": [
+      "dependency_depth",
+      "risk",
+      "value"
+    ]
+  },
+  "queue": []
+}

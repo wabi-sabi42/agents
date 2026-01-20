@@ -3,6 +3,7 @@ import sys
 from pathlib import Path
 from agents_core.install import install
 from agents_core.scan import scan
+from agents_core.update import update
 
 def main():
     parser = argparse.ArgumentParser(description="Agents Core Tooling")
@@ -21,6 +22,10 @@ def main():
     parser_val = subparsers.add_parser("validate", help="Validate all schemas and task files")
     parser_val.add_argument("--root", default=None, help="Project root directory (default: current)")
 
+    # update
+    parser_upd = subparsers.add_parser("update", help="Run post-session update (scan, validate, commit, push)")
+    parser_upd.add_argument("--root", default=None, help="Project root directory (default: current)")
+
     args = parser.parse_args()
 
     # Determine Root
@@ -36,6 +41,8 @@ def main():
         scan(root_dir, refresh_index=args.refresh_index)
     elif args.command == "validate":
         scan(root_dir, validate_only=True)
+    elif args.command == "update":
+        update(root_dir)
     else:
         parser.print_help()
         sys.exit(1)
