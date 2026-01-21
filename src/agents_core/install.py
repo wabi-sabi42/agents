@@ -32,10 +32,24 @@ def install(project_root: Path):
         agents_md = res_pkg / "AGENTS.md"
         if agents_md.is_file():
             dest = project_root / "AGENTS.md"
-            dest.write_bytes(agents_md.read_bytes())
-            print(f"[agents] Copied AGENTS.md to {dest}")
+            if not dest.exists():
+                dest.write_bytes(agents_md.read_bytes())
+                print(f"[agents] Copied AGENTS.md to {dest}")
     except Exception as e:
         print(f"[agents][WARN] Could not copy AGENTS.md: {e}")
+
+    # Copy Templates (VISION.md, OVERVIEW.md)
+    try:
+        tpl_pkg = files("agents_core.resources.templates")
+        for filename in ["VISION.md", "OVERVIEW.md"]:
+            tpl_file = tpl_pkg / filename
+            if tpl_file.is_file():
+                dest = project_root / filename
+                if not dest.exists():
+                    dest.write_bytes(tpl_file.read_bytes())
+                    print(f"[agents] Created {filename} from template")
+    except Exception as e:
+        print(f"[agents][WARN] Could not copy documentation templates: {e}")
 
     # Ensure index/priorities exist
     index_path = agents_dir / "index.json"
