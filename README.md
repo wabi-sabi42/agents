@@ -47,7 +47,7 @@ A high-level orchestration command designed for end-of-session synchronization. 
 All agents operating in a repository initialized with this tooling must adhere to the rules defined in [AGENTS.md](./AGENTS.md).
 
 ## Development and Testing
-To run the test suite:
+To run the full test suite:
 ```bash
-python3 tests/test_update.py
+python3 -m unittest discover tests
 ```
