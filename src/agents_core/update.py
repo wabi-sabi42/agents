@@ -7,7 +7,6 @@ import subprocess
 import sys
 import time
 from pathlib import Path
-from typing import Optional
 
 from agents_core.scan import scan
 

@@ -1,11 +1,9 @@
 import unittest
 import json
-import os
-import shutil
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import sys
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
 
 # Add src to path to import agents_core
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
