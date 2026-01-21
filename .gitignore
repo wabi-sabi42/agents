@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Agents (Runtime artifacts that should not be committed if they are local-only)
+# For the TOOL itself, we want to commit .agents/schemas, etc. but typically
+# downstream usage might ignore some .agents content if it was purely transient.
+# However, the 'control plane' (.agents/priorities, index, tasks) IS meant to be committed.
+# So we only ignore the temp artifacts.
+
+# Testing
+verify_cli/
+test_consumer/

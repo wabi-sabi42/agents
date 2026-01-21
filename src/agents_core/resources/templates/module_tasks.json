@@ -1,0 +1,6 @@
+{
+    "$schema": "../../.agents/schemas/tasks.schema.json",
+    "module": "__MODULE_NAME__",
+    "updated_at": "__TIMESTAMP_OR_BOOTSTRAP__",
+    "tasks": []
+}

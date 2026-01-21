@@ -1,0 +1,33 @@
+{
+    "id": "__MODULE__:__TASK_ID__",
+    "title": "__TASK_TITLE__",
+    "status": "todo",
+    "acceptance": [
+        "__CRITERIA_1__",
+        "__CRITERIA_2__"
+    ],
+    "impl": {
+        "steps": [
+            {
+                "type": "modify",
+                "file": "__FILE_PATH__",
+                "desc": "__DESCRIPTION__"
+            },
+            {
+                "type": "create",
+                "file": "__NEW_FILE_PATH__",
+                "desc": "__DESCRIPTION__"
+            }
+        ]
+    },
+    "refs": [
+        {
+            "file": "__PATH_TO_FILE__",
+            "line": 1,
+            "end_line": 1,
+            "anchor": "__ANCHOR_OR_NULL__"
+        }
+    ],
+    "notes": [],
+    "next_notes": []
+}

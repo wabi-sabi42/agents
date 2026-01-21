@@ -1,0 +1,50 @@
+{
+    "$id": "https://local.schemas/common.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "definitions": {
+        "file_ref": {
+            "type": "object",
+            "required": [
+                "file"
+            ],
+            "properties": {
+                "file": {
+                    "type": "string"
+                },
+                "line": {
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "end_line": {
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "anchor": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "iso_date": {
+            "type": "string",
+            "anyOf": [
+                {
+                    "format": "date-time"
+                },
+                {
+                    "const": "bootstrap"
+                },
+                {
+                    "const": "scan"
+                },
+                {
+                    "pattern": "^__.*__$"
+                }
+            ]
+        }
+    }
+}

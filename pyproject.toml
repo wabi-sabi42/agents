@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agents-core"
+version = "0.1.0"
+description = "Core agentic workflow tooling"
+requires-python = ">=3.8"
+dependencies = [
+    "jsonschema>=4.0.0",
+    "referencing>=0.30.0",
+]
+scripts = { agents = "agents_core.cli:main" }
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agents_core"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/agents_core",
+]
